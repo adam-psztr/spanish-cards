@@ -1,0 +1,25 @@
+.modal {
+	display: none;
+}
+
+@media screen and (orientation: landscape) {
+  html, body {
+		width: 100vh;
+  }
+	.modal {
+		display: block;
+		height: 100vw;
+		width: 100vh;
+		background-color: dimgray;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.modal img {
+		transform: rotate(-180deg);
+		width: 100%;
+	}
+}

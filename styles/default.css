@@ -51,7 +51,7 @@ body {
 }
 
 body.bg01 {
-	background-image: url(../images/bg-abstract.jpg);
+	background-image: url(../images/bgs/bg-abstract.jpg);
 }
 body.bg02 {
 	background-image: url(../images/bg-black-red.jpg);
@@ -74,5 +74,12 @@ body.bg07 {
 body.bg08 {
 	background-image: url(../images/bg-abstract.jpg);
 }
+
+
+@viewport {  
+	orientation: portrait;  
+} 
+
+
 
 
