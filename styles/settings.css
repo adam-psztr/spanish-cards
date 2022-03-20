@@ -1,0 +1,91 @@
+header {
+	width: 100%;
+	height: 10%;
+	border-bottom: 2px dotted gray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header h1 {
+	font-size: 3rem;
+}
+
+main {
+	height: 90%;
+	overflow: hidden;
+}
+
+.simple {
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.simpleBox {
+	border-radius: .5rem;
+	height: 60%;
+	width: 70%;
+	box-shadow: 2px 2px 3px gray, 1px 1px 3px gray inset;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.simple .simpText {
+	font-size: 3rem;
+}
+
+form {
+	height: 70%;
+}
+
+form .fontSizeForm {
+	height: 15%;
+	border-bottom: 1px dotted gray;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+form .fontSizeForm input {
+	display: none;
+}
+
+form .fontSizeForm label {
+	height: 80%;
+	width: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+form .fontSizeForm label:nth-child(2) {
+	font-size: 2.5rem;
+}
+form .fontSizeForm label:nth-child(4) {
+	font-size: 3rem;
+}
+form .fontSizeForm label:nth-child(6) {
+	font-size: 3.5rem;
+}
+form .fontSizeForm label:nth-child(8) {
+	font-size: 4rem;
+}
+form .fontSizeForm label:nth-child(10) {
+	font-size: 4.5rem;
+}
+
+form .fontSizeForm input:checked + label {
+	background: radial-gradient(lightblue 30%, transparent 70%);
+}
+
+body > a {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px;
+	background-color: aquamarine;
+	border-radius: 10px;
+}

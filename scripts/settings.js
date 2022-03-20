@@ -6,7 +6,27 @@ const bgImg = ["url(./images/bgs/bg-abstract.jpg)","url(./images/bgs/bg-black-re
 const dark = [];
 const cardDim = [];
 
+const simpleBox = document.querySelector(".simpleBox");
+const simpleText = document.querySelector(".simpText");
+
+document.querySelectorAll('input[name="fontSize"]').forEach((inp)=> {
+	inp.addEventListener('change', ()=>{
+		simpleText.style.fontSize = fontSize[document.querySelector('input[name="fontSize"]:checked').value]*3+"px";
+	});
+});
+
+// let fontSizeFormVal= document.querySelector('input[name="fontSize"]:checked').value;
+
 const settings = {};
+
+// function changeSimple (sim, prop, val) {
+// 	sim.style.fontSize = fontSize[fontSizeFormVal]+"px";
+// }
+
+// changeSimple(simpleText,fontSize,fontSize[fontSizeFormVal]+"px")
+
+
+
 
 
 html.style.fontSize=localStorage.fS;
