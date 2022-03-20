@@ -4,13 +4,13 @@
 
 @media screen and (orientation: landscape) {
   html, body {
-		height: 100vh;
-		width: 100vw;
+		height: 100%;
+		width: 100%;
   }
 	.modal {
 		display: block;
-		height: 100vh;
-		width: 100vw;
+		height: 100%;
+		width: 100%;
 		background-color: dimgray;
 		position: absolute;
 		top: 0;
@@ -22,5 +22,10 @@
 	.modal img {
 		transform: rotate(90deg);
 		height: 100%;
+	}
+	.modal p {
+		font-size: 2rem;
+		color: #fff;
+		text-align: center;
 	}
 }
