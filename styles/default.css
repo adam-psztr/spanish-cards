@@ -32,6 +32,9 @@ html {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #fff;
+}
+
+body {
 	background-image: url(../images/bgs/bg-gray.jpg);
 }
 
