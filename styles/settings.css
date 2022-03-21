@@ -78,7 +78,7 @@ form .fontSizeForm label:nth-child(10) {
 }
 
 form .fontSizeForm input:checked + label {
-	background: radial-gradient(lightblue 30%, transparent 70%);
+	background: radial-gradient(lightblue 10%, transparent 60%);
 }
 
 body > a {
