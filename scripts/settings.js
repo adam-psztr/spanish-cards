@@ -12,6 +12,8 @@ const simpleText = document.querySelector(".simpText");
 document.querySelectorAll('input[name="fontSize"]').forEach((inp)=> {
 	inp.addEventListener('change', ()=>{
 		simpleText.style.fontSize = fontSize[document.querySelector('input[name="fontSize"]:checked').value]*3+"px";
+		let aaa = fontSize[document.querySelector('input[name="fontSize"]:checked').value]+"px";
+		localStorage.setItem("FS",aaa)
 	});
 });
 
@@ -29,7 +31,7 @@ const settings = {};
 
 
 
-html.style.fontSize=localStorage.fS;
+html.style.fontSize=localStorage.FS;
 
 function saveSettings() {
 
@@ -45,5 +47,16 @@ function refreshSettings() {
 
 refreshSettings();
 
-console.log(settings.fontSize, settings.bgImg)
+console.log(settings.fontSize, settings.bgImg);
 
+
+
+
+
+
+// TEST
+function bbb(){
+	html.style.fontSize = localStorage.FS;
+}
+
+document.querySelector("#test").addEventListener('click', bbb);
