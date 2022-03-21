@@ -28,13 +28,19 @@ html, body {
 html {
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: #fff;
+	background-color: #000;
+	min-height: calc(100% + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top)
+	env(safe-area-inset-right)
+	env(safe-area-inset-bottom)
+	env(safe-area-inset-left);
 }
 
 body {
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-image: url(../images/bgs/bg-gray.jpg);
 }
 
