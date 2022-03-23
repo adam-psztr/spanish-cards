@@ -45,36 +45,72 @@ main {
 
 form {
 	height: 50%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: rgba(0,0,0,.2);
+	box-shadow: 0 2px 2px rgba(0,0,0,.3), 0 2px 2px rgba(255,255,255,.3) inset;
 }
 
 form .fontSizeForm,
-form .fontFamForm {
-	height: 7rem;
-	margin: 1rem 0;
+form .fontFamForm,
+form .fontCoForm {
+	height: 70px;
+	margin: 10px 0;
+	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	box-shadow: 0 0 20px rgba(0,0,0,.5);
 }
 
+form .fontFamForm {
+	overflow-x: scroll;
+	justify-content: flex-start;
+}
+
 form .fontSizeForm input,
-form .fontFamForm input {
+form .fontFamForm input,
+form .fontCoForm input {
 	display: none;
 }
 
-form .fontSizeForm label {
-	height: 80%;
-	width: 15%;
+form .fontSizeForm label,
+form .fontFamForm label,
+form .fontCoForm label {
+	height: 70%;
+	padding: 0 15px;
+	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
 }
-
-.dark form .fontSizeForm label {
+.dark form .fontSizeForm label,
+.dark form .fontFamForm label,
+.dark form .fontCoForm label {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
+}
+
+form .fontFamForm label {
+	font-size: 30px;
+	margin: 0 10px;
+}
+form .fontCoForm label {
+	font-size: 35px;
+}
+
+form .fontSizeForm input:checked + label,
+form .fontFamForm input:checked + label,
+form .fontCoForm input:checked + label {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+}
+.dark form .fontSizeForm input:checked + label,
+.dark form .fontFamForm input:checked + label,
+.dark form .fontCoForm input:checked + label {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
 }
 
 form .fontSizeForm label:nth-child(2) {
@@ -93,16 +129,39 @@ form .fontSizeForm label:nth-child(10) {
 	font-size: 45px;
 }
 
-form .fontSizeForm input:checked + label {
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+form .fontFamForm label:nth-child(2) {
+	font-family: 'Comfortaa', cursive;
 }
-.dark form .fontSizeForm input:checked + label {
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
+form .fontFamForm label:nth-child(4) {
+	font-family: 'Hubballi', cursive;
+}
+form .fontFamForm label:nth-child(6) {
+	font-family: 'Montserrat', sans-serif;
+}
+form .fontFamForm label:nth-child(8) {
+	font-family: 'Open Sans', sans-serif;
+}
+form .fontFamForm label:nth-child(10) {
+	font-family: 'Red Hat Mono', monospace;
+}
+form .fontFamForm label:nth-child(12) {
+	font-family: 'Roboto', sans-serif;
+}
+form .fontFamForm label:nth-child(14) {
+	font-family: 'Varela Round', sans-serif;
 }
 
-form .fontFamForm label {
-	font-size: 40px;
-	margin: 0 1%;
+form .fontCoForm label:nth-child(2) {
+	color: #fff;
+}
+form .fontCoForm label:nth-child(4) {
+	color: #aaa;
+}
+form .fontCoForm label:nth-child(6) {
+	color: #555;
+}
+form .fontCoForm label:nth-child(8) {
+	color: #000;
 }
 
 
@@ -120,3 +179,5 @@ body > a:nth-child(4) {
 	left: 50px;
 	right: auto;
 }
+
+
