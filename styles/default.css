@@ -14,11 +14,13 @@ li {
 
 a{
 	text-decoration: none;
+	color: #fff;
 }
 
 html, body {
 	width: 100%;
 	height: 100%;
+	background-color: #000;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
         -ms-user-select: none;
@@ -26,9 +28,10 @@ html, body {
 }
 
 html {
+	color: #fff;
+	letter-spacing: .2rem;
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
-	background-color: #000;
 	min-height: calc(100% + env(safe-area-inset-top));
 }
 
@@ -39,8 +42,3 @@ body {
 	background-repeat: no-repeat;
 	background-image: url(../images/bgs/bg-gray.jpg);
 }
-
-
-
-
-

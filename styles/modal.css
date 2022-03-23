@@ -1,24 +1,24 @@
 .modal {
 	display: none;
+	background-color: #777;
+}
+.dark .modal {
+	background-color: #000;
 }
 
 @media screen and (orientation: landscape) {
-  html, body {
-		height: 100%;
-		width: 100%;
-  }
 	.modal {
 		display: block;
 		height: 100%;
 		width: 100%;
 		padding: 5%;
-		background-color: dimgray;
 		position: absolute;
 		top: 0;
 		left: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		min-height: calc(100% + env(safe-area-inset-top));;
 	}
 	.modal img {
 		transform: rotate(90deg);
@@ -26,7 +26,6 @@
 	}
 	.modal p {
 		font-size: 2rem;
-		color: #fff;
 		text-align: center;
 	}
 }
