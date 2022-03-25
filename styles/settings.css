@@ -55,7 +55,8 @@ form {
 form .fontSizeForm,
 form .fontFamForm,
 form .fontCoForm,
-form .bgImgForm {
+form .bgImgForm,
+form .toggle-buttons {
 	height: 70px;
 	margin: 10px 0;
 	width: 100%;
@@ -93,6 +94,7 @@ form .bgImgForm label {
 	justify-content: center;
 	align-items: center;
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
+	cursor: pointer;
 }
 .dark form .fontSizeForm label,
 .dark form .fontFamForm label,
@@ -185,6 +187,107 @@ form .fontCoForm label:nth-child(8) {
 	color: #000;
 }
 
+.toggle-button-cover {
+	position: relative;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.knobs, .layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.button {
+	position: relative;
+	width: 120px;
+	height: 50px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.knobs:before, .knobs:after, .knobs span {
+	position: absolute;
+	top: 4px;
+	width: 46px;
+	height: 24px;
+	font-size: 17px;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	padding: 9px 4px;
+	border-radius: 5px;
+	transition: .5s ease all;
+}
+
+#d2-d3 .knobs span {
+	font-weight: bold;
+}
+
+.knobs:before {
+	content: '';
+	left: 4px;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+}
+
+#light-dark .knobs:after {
+	content: 'dark';
+	right: 2px;
+	color: #000;
+}
+
+#d2-d3 .knobs:after {
+	content: '3D';
+	right: 1px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.knobs span {
+	display: inline-block;
+	left: 5px;
+	color: #fff;
+	z-index: 1;
+}
+
+#d2-d3 .knobs span {
+	left: 10px;
+}
+
+.checkbox:checked + .knobs:before {
+	left: 62px;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
+}
+
+.checkbox:checked ~ .layer {
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
+}
+
+.checkbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.knobs {
+	z-index: 2;
+}
+
+.layer {
+	width: 100%;
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
+	z-index: 1;
+}
+
 
 
 body > a {
@@ -199,177 +302,4 @@ body > a {
 body > a:nth-child(4) {
 	left: 50px;
 	right: auto;
-}
-
-
-form .darkStForm input {
-	display: block;
-}
-
-*:focus
-{
-    outline: none;
-}
-
-body
-{
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background-color: #f1f9f9;
-}
-
-#app-cover
-{
-    display: table;
-    width: 600px;
-    margin: 80px auto;
-    counter-reset: button-counter;
-}
-
-.row
-{
-    display: table-row;
-}
-
-.toggle-button-cover
-{
-    display: table-cell;
-    position: relative;
-    width: 200px;
-    height: 140px;
-    box-sizing: border-box;
-}
-
-.button-cover
-{
-    height: 100px;
-    margin: 20px;
-    background-color: #fff;
-    box-shadow: 0 10px 20px -8px #c5d6d6;
-    border-radius: 4px;
-}
-
-.button-cover:before
-{
-    counter-increment: button-counter;
-    content: counter(button-counter);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: #d7e3e3;
-    font-size: 12px;
-    line-height: 1;
-    padding: 5px;
-}
-
-.button-cover, .knobs, .layer
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.button
-{
-    position: relative;
-    top: 50%;
-    width: 74px;
-    height: 36px;
-    margin: -20px auto 0 auto;
-    overflow: hidden;
-}
-
-.button.r, .button.r .layer
-{
-    border-radius: 100px;
-}
-
-#button-10 .knobs:before, #button-10 .knobs:after, #button-10 .knobs span
-{
-    position: absolute;
-    top: 4px;
-    width: 20px;
-    height: 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1;
-    padding: 9px 4px;
-    border-radius: 2px;
-    transition: 0.3s ease all;
-}
-
-#button-10 .knobs:before
-{
-    content: '';
-    left: 4px;
-    background-color: #03A9F4;
-}
-
-#button-10 .knobs:after
-{
-    content: 'NO';
-    right: 4px;
-    color: #4e4e4e;
-}
-
-#button-10 .knobs span
-{
-    display: inline-block;
-    left: 4px;
-    color: #fff;
-    z-index: 1;
-}
-
-#button-10 .checkbox:checked + .knobs span
-{
-    color: #4e4e4e;
-}
-
-#button-10 .checkbox:checked + .knobs:before
-{
-    left: 42px;
-    background-color: #F44336;
-}
-
-#button-10 .checkbox:checked + .knobs:after
-{
-    color: #fff;
-}
-
-#button-10 .checkbox:checked ~ .layer
-{
-    background-color: #fcebeb;
-}
-
-.button.b2
-{
-    border-radius: 2px;
-}
-
-.checkbox
-{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.knobs
-{
-    z-index: 2;
-}
-
-.layer
-{
-    width: 100%;
-    background-color: #ebf7fc;
-    transition: 0.3s ease all;
-    z-index: 1;
 }
