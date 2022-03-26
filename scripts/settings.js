@@ -21,25 +21,25 @@ const FONTCO = [
 	"#555",
 	"#000"];
 const BGIMG = [
-	"url(../images/bgs/bg-abstract.jpg)",
-	"url(../images/bgs/bg-black-red.jpg)",
-	"url(../images/bgs/bg-black.png)",
-	"url(../images/bgs/bg-flowers.jpg)",
-	"url(../images/bgs/bg-gray.jpg)",
-	"url(../images/bgs/bg-lightblue.jpg)",
-	"url(../images/bgs/bg-marble.jpg)",
-	"url(../images/bgs/bg-pink-blue-space.jpg)",
-	"url(../images/bgs/bg-pink-blue.jpg)",
-	"url(../images/bgs/bg-polygon.jpg)",
-	"url(../images/bgs/bg-snowfall.jpg)",
-	"url(../images/bgs/bg-wall-dark.jpg)",
-	"url(../images/bgs/bg-wall.jpg)"];
+	"url(./images/bgs/bg-abstract.jpg)",
+	"url(./images/bgs/bg-black-red.jpg)",
+	"url(./images/bgs/bg-black.png)",
+	"url(./images/bgs/bg-flowers.jpg)",
+	"url(./images/bgs/bg-gray.jpg)",
+	"url(./images/bgs/bg-lightblue.jpg)",
+	"url(./images/bgs/bg-marble.jpg)",
+	"url(./images/bgs/bg-pink-blue-space.jpg)",
+	"url(./images/bgs/bg-pink-blue.jpg)",
+	"url(./images/bgs/bg-polygon.jpg)",
+	"url(./images/bgs/bg-snowfall.jpg)",
+	"url(./images/bgs/bg-wall-dark.jpg)",
+	"url(./images/bgs/bg-wall.jpg)"];
 
 const DARKST = [];
 const CARDDIM = [];
 
 let fontSizeInputs = document.querySelectorAll('input[name="fontSize"]');
-let fontSizeInputCheckedValue = localStorage.FS || "30px";
+let fontSizeInputCheckedValue = localStorage.FS || "10px";
 let fontSizeInputCheckedId = localStorage.FSID || "#fS2";
 
 let fontFamInputs = document.querySelectorAll('input[name="fontFam"]');

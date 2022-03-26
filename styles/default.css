@@ -23,23 +23,115 @@ html, body {
 	height: 100%;
 	background-color: #000;
 	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
-
+			
 html {
 	color: #fff;
 	letter-spacing: .2rem;
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
 	min-height: calc(100% + env(safe-area-inset-top));
+	font-weight: 600;
 }
-
+			
 body {
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(../images/bgs/bg-gray.jpg);
+}
+
+.fS0 {
+	font-size: 8px;
+}
+.fS1 {
+	font-size: 9px;
+}
+.fS2 {
+	font-size: 10px;
+}
+.fS3 {
+	font-size: 11px;
+}
+.fS4 {
+	font-size: 12px;
+}
+
+.fF0 {
+	font-family: 'Comfortaa', cursive;
+}
+.fF1 {
+	font-family: 'Hubballi', cursive;
+}
+.fF2 {
+	font-family: 'Montserrat', sans-serif;
+}
+.fF3 {
+	font-family: 'Open Sans', sans-serif;
+}
+.fF4 {
+	font-family: 'Red Hat Mono', monospace;
+}
+.fF5 {
+	font-family: 'Roboto', sans-serif;
+}
+.fF6 {
+	font-family: 'Varela Round', sans-serif;
+}
+
+.fC0 {
+	color: #fff;
+}
+.fC1 {
+	color: #aaa;
+}
+.fC2 {
+	color: #555;
+}
+.fC3 {
+	color: #000;
+}
+
+.bgI0 {
+	background-image: url(../images/bgs/bg-abstract.jpg);
+}
+.bgI1 {
+	background-image: url(../images/bgs/bg-black-red.jpg);
+}
+.bgI2 {
+	background-image: url(../images/bgs/bg-black.png);
+}
+.bgI3 {
+	background-image: url(../images/bgs/bg-flowers.jpg);
+}
+.bgI4 {
+	background-image: url(../images/bgs/bg-gray.jpg);
+}
+.bgI5 {
+	background-image: url(../images/bgs/bg-lightblue.jpg);
+}
+.bgI6 {
+	background-image: url(../images/bgs/bg-marble.jpg);
+}
+.bgI7 {
+	background-image: url(../images/bgs/bg-pink-blue-space.jpg);
+}
+.bgI8 {
+	background-image: url(../images/bgs/bg-pink-blue.jpg);
+}
+.bgI9 {
+	background-image: url(../images/bgs/bg-polygon.jpg);
+}
+.bgI10 {
+	background-image: url(../images/bgs/bg-snowfall.jpg);
+}
+.bgI11 {
+	background-image: url(../images/bgs/bg-wall-dark.jpg);
+}
+.bgI12 {
+	background-image: url(../images/bgs/bg-wall.jpg);
 }

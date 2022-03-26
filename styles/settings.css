@@ -37,14 +37,29 @@ main {
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(0,0,0,.3);
+	background-position: center 30%;
+	background-size: cover;
+	font-size: 30px;
 }
 
-.simple .simpText {
-	font-size: 3rem;
+.simpleBox img {
+	height: 35px;
+	margin-right: 20px;
+	opacity: .6;
+}
+
+.simpleBox p {
+	padding: 5px 10px 5px 0px;
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
+}
+
+.simpleBox p::first-letter {
+	padding: 5px 0 5px 10px;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.9));
 }
 
 form {
-	height: 50%;
+	height: 55%;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -132,7 +147,7 @@ form .bgImgForm input:checked + label {
 .dark form .fontSizeForm input:checked + label,
 .dark form .fontFamForm input:checked + label,
 .dark form .fontCoForm input:checked + label,
-.dark form .fonbgImgFormtCoForm input:checked + label {
+.dark form .bgImgForm input:checked + label {
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
 }
 
@@ -218,6 +233,7 @@ form .fontCoForm label:nth-child(8) {
 	height: 24px;
 	font-size: 17px;
 	font-family: 'Roboto', sans-serif;
+	letter-spacing: .1rem;
 	text-align: center;
 	padding: 9px 4px;
 	border-radius: 5px;
@@ -231,7 +247,7 @@ form .fontCoForm label:nth-child(8) {
 .knobs:before {
 	content: '';
 	left: 4px;
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.8));
 }
 
 #light-dark .knobs:after {
@@ -260,11 +276,17 @@ form .fontCoForm label:nth-child(8) {
 
 .checkbox:checked + .knobs:before {
 	left: 62px;
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+}
+#d2-d3 .checkbox:checked + .knobs:before {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.8));
 }
 
 .checkbox:checked ~ .layer {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
+}
+#d2-d3 .checkbox:checked ~ .layer {
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
 }
 
 .checkbox {
@@ -292,7 +314,7 @@ form .fontCoForm label:nth-child(8) {
 
 body > a {
 	position: fixed;
-	bottom: 50px;
+	bottom: 30px;
 	right: 50px;
 	padding: 20px;
 	background-color: aquamarine;
