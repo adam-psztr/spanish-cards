@@ -1,6 +1,7 @@
 .modal {
 	display: none;
 	background-color: #777;
+	z-index: 9999;
 }
 .dark .modal {
 	background-color: #000;

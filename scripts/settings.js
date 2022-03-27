@@ -51,8 +51,15 @@ const BGIMG = {
 	"url(../images/bgs/bg-wall.jpg)"]
 };
 
-const DARKST = [];
-const CARDDIM = [];
+const DARKST = [
+	"light",
+	"dark"
+];
+
+const CARDDIM = [
+	"dim2d",
+	"dim3d"
+];
 
 let fontSizeInputs = document.querySelectorAll('input[name="fontSize"]');
 let fontSizeInputCheckedValue = localStorage.FS || "10px";
@@ -69,19 +76,23 @@ let fontCoInputCheckedId = localStorage.FCID || "#fC0";
 let bgImgInputs = document.querySelectorAll('input[name="bgImg"]');
 let bgImgInputCheckedValueP = localStorage.BGIP || "url(../images/bgs/bg-gray.jpg)";
 let bgImgInputCheckedIdP = localStorage.BGIPID || "#bgI4";
-let bgImgInputCheckedIdC = localStorage.BGICID || "bgI4";
+let bgImgInputCheckedIdC = localStorage.BGIC || "bgI4";
 
 let lightDarkInput = document.querySelector("#light-dark input");
+let lightDarkInputValue = localStorage.LDST || "light";
 
 SIMPLEBOX.style.fontSize=parseInt(fontSizeInputCheckedValue)*3+"px";
 SIMPLEBOX.style.fontFamily=fontFamInputCheckedValue;
 SIMPLEBOX.style.color=fontCoInputCheckedValue;
 SIMPLEBOX.style.backgroundImage=bgImgInputCheckedValueP;
 
-document.querySelector(fontSizeInputCheckedId).checked = true
-document.querySelector(fontFamInputCheckedId).checked = true
-document.querySelector(fontCoInputCheckedId).checked = true
-document.querySelector(bgImgInputCheckedIdP).checked = true
+document.querySelector(fontSizeInputCheckedId).checked = true;
+document.querySelector(fontFamInputCheckedId).checked = true;
+document.querySelector(fontCoInputCheckedId).checked = true;
+document.querySelector(bgImgInputCheckedIdP).checked = true;
+if(lightDarkInputValue==="dark"){
+	lightDarkInput.checked = true;
+	SIMPLEBOX.classList.add("simpleDark")};
 
 fontSizeInputs.forEach((inp)=> {
 	inp.addEventListener('change', ()=>{
@@ -117,8 +128,12 @@ bgImgInputs.forEach((inp)=> {
 });
 
 lightDarkInput.addEventListener('change', ()=>{
-	if(lightDarkInput){
-		
+	if(lightDarkInput.checked){
+		SIMPLEBOX.classList.add("simpleDark");
+		lightDarkInputValue = DARKST[1];
+	} else {
+		SIMPLEBOX.classList.remove("simpleDark");
+		lightDarkInputValue = DARKST[0];
 	}
 })
 
@@ -132,6 +147,7 @@ function saveSettingsToLocalStorage() {
 	localStorage.setItem("BGIC",bgImgInputCheckedIdC);
 	localStorage.setItem("BGIP",bgImgInputCheckedValueP);
 	localStorage.setItem("BGIPID",bgImgInputCheckedIdP);
+	localStorage.setItem("LDST",lightDarkInputValue);
 }
 
 
@@ -139,9 +155,17 @@ function saveSettingsToLocalStorage() {
 document.querySelector('#test').addEventListener('click', saveSettingsToLocalStorage);
 document.querySelector('#test').addEventListener('click', ()=>{
 	HTML.style.fontSize=localStorage.FS;
-HTML.style.fontFamily=localStorage.FF;
-HTML.style.color=localStorage.FC;
-BODY.style.backgroundImage=localStorage.BGI;
+	HTML.style.fontFamily=localStorage.FF;
+	HTML.style.color=localStorage.FC;
+	BODY.removeAttribute("class");
+	BODY.classList.add(localStorage.BGIC);
+	if(lightDarkInput){
+		BODY.classList.remove("light");
+		BODY.classList.add(localStorage.LDST);
+	} else {
+		BODY.classList.remove("dark");
+		BODY.classList.add(localStorage.LDST);
+	}
 });
 
 // fontSizeInputs.forEach((inp)=> {
