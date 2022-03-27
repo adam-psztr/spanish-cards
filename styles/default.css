@@ -45,57 +45,6 @@ body {
 	background-image: url(../images/bgs/bg-gray.jpg);
 }
 
-.fS0 {
-	font-size: 8px;
-}
-.fS1 {
-	font-size: 9px;
-}
-.fS2 {
-	font-size: 10px;
-}
-.fS3 {
-	font-size: 11px;
-}
-.fS4 {
-	font-size: 12px;
-}
-
-.fF0 {
-	font-family: 'Comfortaa', cursive;
-}
-.fF1 {
-	font-family: 'Hubballi', cursive;
-}
-.fF2 {
-	font-family: 'Montserrat', sans-serif;
-}
-.fF3 {
-	font-family: 'Open Sans', sans-serif;
-}
-.fF4 {
-	font-family: 'Red Hat Mono', monospace;
-}
-.fF5 {
-	font-family: 'Roboto', sans-serif;
-}
-.fF6 {
-	font-family: 'Varela Round', sans-serif;
-}
-
-.fC0 {
-	color: #fff;
-}
-.fC1 {
-	color: #aaa;
-}
-.fC2 {
-	color: #555;
-}
-.fC3 {
-	color: #000;
-}
-
 .bgI0 {
 	background-image: url(../images/bgs/bg-abstract.jpg);
 }
