@@ -17,12 +17,12 @@ header h1 {
 }
 
 main {
-	height: 90%;
+	height: 78%;
 	overflow: hidden;
 }
 
 .simple {
-	height: 30%;
+	height: 35%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -30,7 +30,7 @@ main {
 
 .simpleBox {
 	border-radius: 20px;
-	height: 60%;
+	height: 65%;
 	width: 70%;
 	box-shadow: 0 0 20px rgba(0,0,0,.5);
 	display: flex;
@@ -72,7 +72,7 @@ main {
 }
 
 form {
-	height: 55%;
+	height: 60%;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -325,18 +325,36 @@ form .fontCoForm label:nth-child(8) {
 	z-index: 1;
 }
 
-
-
-body > a {
-	position: fixed;
-	bottom: 30px;
-	right: 50px;
-	padding: 20px;
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(19, 3, 31, 0.8));
-	border-radius: 10px;
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 2px 2px rgba(255,255,255,.3) inset;
+	overflow: hidden;
+	width: 100%;
+	height: 12%;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.15), rgba(198, 3, 31, 0.8));
+}
+.dark footer {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.15), rgba(198, 3, 31, 0.5));
 }
 
-body > a:nth-child(4) {
-	left: 50px;
-	right: auto;
+footer a {
+	font-size: 2rem;
+	padding: 2rem 2rem 2rem 4rem;
+	transform: skew(-20deg);
+	margin: 0 0 0 -2rem;
+	width: 50%;
+	text-align: right;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.3), rgba(198, 3, 31, 0.05));
+	box-shadow: 2px 2px 2px rgba(0,0,0,.3), 0 2px 2px rgba(255,255,255,.3) inset;
+}
+.dark footer a {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.3), rgba(198, 3, 31, 0.05));
+}
+
+footer a:last-child {
+	text-align: left;
+	padding: 2rem 4rem 2rem 2rem;
+	margin-right: -2rem;
 }

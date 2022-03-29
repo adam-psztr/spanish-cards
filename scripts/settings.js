@@ -150,127 +150,16 @@ function saveSettingsToLocalStorage() {
 	localStorage.setItem("LDST",lightDarkInputValue);
 }
 
-
-
-document.querySelector('#test').addEventListener('click', saveSettingsToLocalStorage);
-document.querySelector('#test').addEventListener('click', ()=>{
+document.querySelector('#saveBtn').addEventListener('click', ()=>{
+	saveSettingsToLocalStorage();
 	HTML.style.fontSize=localStorage.FS;
 	HTML.style.fontFamily=localStorage.FF;
 	HTML.style.color=localStorage.FC;
 	BODY.removeAttribute("class");
 	BODY.classList.add(localStorage.BGIC);
 	if(lightDarkInput){
-		BODY.classList.remove("light");
 		BODY.classList.add(localStorage.LDST);
 	} else {
-		BODY.classList.remove("dark");
 		BODY.classList.add(localStorage.LDST);
 	}
 });
-
-// fontSizeInputs.forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		html.classList.remove
-// 		html.classList.add(fontSize[fontSizeInputChecked.value]);
-// 		localStorage.setItem("FS",fontSize[document.querySelector('input[name="fontSize"]:checked').value])
-// 	});
-// });
-
-// html.classList.add(localStorage.FS)
-
-// document.querySelectorAll('input[name="fontFam"]').forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		html.classList.add(fontSize[document.querySelector('input[name="fontFam"]:checked').value]);
-// 		localStorage.setItem("FF",fontFam[document.querySelector('input[name="fontFam"]:checked').value])
-// 	});
-// });
-
-// html.classList.add(localStorage.FF)
-
-// document.querySelectorAll('input[name="fontCo"]').forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		html.classList.add(fontSize[document.querySelector('input[name="fontCo"]:checked').value]);
-// 		localStorage.setItem("FC",fontCo[document.querySelector('input[name="fontCo"]:checked').value])
-// 	});
-// });
-
-// html.classList.add(localStorage.FC)
-
-// document.querySelectorAll('input[name="bgImg"]').forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		body.classList.add(fontSize[document.querySelector('input[name="bgImg"]:checked').value]);
-// 		localStorage.setItem("BG",bgImg[document.querySelector('input[name="bgImg"]:checked').value])
-// 	});
-// });
-
-// body.classList.add(localStorage.BG)
-
-
-
-// function aaa() {
-
-// }
-
-
-
-
-
-// document.querySelectorAll('input[name="fontSize"]').forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		simpleText.style.fontSize = fontSize[document.querySelector('input[name="fontSize"]:checked').value]*3+"px";
-// 		let aaa = fontSize[document.querySelector('input[name="fontSize"]:checked').value]+"px";
-// 		localStorage.setItem("FS",aaa)
-// 	});
-// });
-// document.querySelectorAll('input[name="fontFam"]').forEach((inp)=> {
-// 	inp.addEventListener('change', ()=>{
-// 		html.style.fontFamily = fontFam[document.querySelector('input[name="fontFam"]:checked').value];
-// 		let aaa = fontFam[document.querySelector('input[name="fontFam"]:checked').value];
-// 		localStorage.setItem("FF",aaa)
-// 	});
-// });
-
-// let fontSizeFormVal= document.querySelector('input[name="fontSize"]:checked').value;
-
-// const settings = {};
-
-// function changeSimple (sim, prop, val) {
-// 	sim.style.fontSize = fontSize[fontSizeFormVal]+"px";
-// }
-
-// changeSimple(simpleText,fontSize,fontSize[fontSizeFormVal]+"px")
-
-
-
-
-
-// html.style.fontSize=localStorage.FS;
-// html.style.fontFamily=localStorage.FF;
-
-// function saveSettings() {
-
-// }
-
-// function refreshSettings() {
-// 	settings.fontSize = localStorage.fS,
-// 	settings.fontFam = localStorage.fF,
-// 	settings.bgImg = localStorage.bgI,
-// 	settings.dark = localStorage.da,
-// 	settings.cardDim = localStorage.cD
-// }
-
-// refreshSettings();
-
-// console.log(settings.fontSize, settings.bgImg);
-
-
-
-
-
-
-// // TEST
-// function bbb(){
-// 	html.style.fontSize = localStorage.FS;
-// }
-
-// document.querySelector("#test").addEventListener('click', bbb);
