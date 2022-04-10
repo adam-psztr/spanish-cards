@@ -18,70 +18,44 @@ header h1 {
 
 main {
 	height: 78%;
-	overflow: hidden;
-}
-
-.simple {
-	height: 35%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 }
 
-.simpleBox {
-	border-radius: 20px;
-	height: 65%;
-	width: 70%;
-	box-shadow: 0 0 20px rgba(0,0,0,.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(0,0,0,.3);
-	background-position: center 30%;
-	background-size: cover;
-	font-size: 30px;
-}
-
-.simpleBox .simpleSpainFlag {
-	height: 35px;
-	width: 52px;
-	margin-right: 20px;
-	opacity: .6;
-	background-image: url(../images/flags/spain-flag.jpg);
-	background-size: cover;
-	transform: rotateY(0deg);
-}
-.simpleDark.simpleBox .simpleSpainFlag {
-	opacity: .7;
-	background-image: url(../images/flags/spain-flag-dark.jpg);
-}
-.dim3d.simpleBox .simpleSpainFlag {
-	animation: turn 3s ease-in-out infinite;
-}
-
-.simpleBox .simpText {
-	padding: 5px 10px 5px 0px;
-	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
-}
-.simpleDark.simpleBox .simpText {
-	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
-}
-
-.simpleBox .simpText::first-letter {
-	padding: 5px 0 5px 10px;
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.9));
-}
-.simpleDark.simpleBox .simpText::first-letter {
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
-}
-
-form {
-	height: 60%;
+#menuContainer {
+	height: 90%;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	background-color: rgba(0,0,0,.2);
 	box-shadow: 0 2px 2px rgba(0,0,0,.3), 0 2px 2px rgba(255,255,255,.3) inset;
+}
+
+#menuContainer a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 7rem;
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.1), rgba(255, 193, 45, 0.7));
+}
+#menuContainer a:hover {
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.7), rgba(255, 193, 45, 0.1));
+}
+
+#menuContainer a:not(a:last-child) {
+	margin-bottom: 2rem;
+}
+
+#menuContainer p {
+	font-size: 2rem;
+	padding: 1rem;
+	text-align: center;
+}
+
+#menuContainer p i {
+	font-size: 3rem;
+	vertical-align: -.5rem;
+	margin-right: 1rem;
 }
 
 form .fontSizeForm,

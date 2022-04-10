@@ -42,6 +42,21 @@ main ul li:nth-child(3) {
 .dark main ul li:nth-child(3) {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
 }
+main ul li:hover {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.6), rgba(198, 3, 31, 0.01));
+}
+.dark main ul li:hover {
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.4), rgba(198, 3, 31, 0.01));
+}
+
+main ul li:nth-child(2):hover,
+main ul li:nth-child(3):hover {
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.6), rgba(255, 193, 45, 0.01));
+}
+.dark main ul li:nth-child(2):hover,
+.dark main ul li:nth-child(3):hover {
+	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.4), rgba(255, 193, 45, 0.01));
+}
 
 main ul li a {
 	display: block;

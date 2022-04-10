@@ -7,6 +7,7 @@ const FONTSIZE = [
 	"10px",
 	"11px",
 	"12px"];
+
 const FONTFAM = [
 	"'Comfortaa', cursive",
 	"'Hubballi', cursive",
@@ -15,11 +16,13 @@ const FONTFAM = [
 	"'Red Hat Mono', monospace",
 	"'Roboto', sans-serif",
 	"'Varela Round', sans-serif"];
+
 const FONTCO = [
 	"#fff",
 	"#aaa",
 	"#555",
 	"#000"];
+
 const BGIMG = {
 	c: [
 	"bgI0",
@@ -81,6 +84,9 @@ let bgImgInputCheckedIdC = localStorage.BGIC || "bgI4";
 let lightDarkInput = document.querySelector("#light-dark input");
 let lightDarkInputValue = localStorage.LDST || "light";
 
+let dim2d3dInput = document.querySelector("#d2-d3 input");
+let dim2d3dInputValue = localStorage.DIMST || "dim2d";
+
 SIMPLEBOX.style.fontSize=parseInt(fontSizeInputCheckedValue)*3+"px";
 SIMPLEBOX.style.fontFamily=fontFamInputCheckedValue;
 SIMPLEBOX.style.color=fontCoInputCheckedValue;
@@ -93,6 +99,9 @@ document.querySelector(bgImgInputCheckedIdP).checked = true;
 if(lightDarkInputValue==="dark"){
 	lightDarkInput.checked = true;
 	SIMPLEBOX.classList.add("simpleDark")};
+if(dim2d3dInputValue==="dim3d"){
+	dim2d3dInput.checked = true;
+	SIMPLEBOX.classList.add("dim3d")};
 
 fontSizeInputs.forEach((inp)=> {
 	inp.addEventListener('change', ()=>{
@@ -137,6 +146,16 @@ lightDarkInput.addEventListener('change', ()=>{
 	}
 })
 
+dim2d3dInput.addEventListener('change', ()=>{
+	if(dim2d3dInput.checked){
+		SIMPLEBOX.classList.add("dim3d");
+		dim2d3dInputValue = CARDDIM[1];
+	} else {
+		SIMPLEBOX.classList.remove("dim3d");
+		dim2d3dInputValue = CARDDIM[0];
+	}
+})
+
 function saveSettingsToLocalStorage() {
 	localStorage.setItem("FS",fontSizeInputCheckedValue);
 	localStorage.setItem("FSID",fontSizeInputCheckedId);
@@ -148,18 +167,16 @@ function saveSettingsToLocalStorage() {
 	localStorage.setItem("BGIP",bgImgInputCheckedValueP);
 	localStorage.setItem("BGIPID",bgImgInputCheckedIdP);
 	localStorage.setItem("LDST",lightDarkInputValue);
+	localStorage.setItem("DIMST",dim2d3dInputValue);
 }
 
-document.querySelector('#saveBtn').addEventListener('click', ()=>{
+document.querySelector('#saveBtn').addEventListener('click', (e)=>{
+	e.preventDefault();
 	saveSettingsToLocalStorage();
 	HTML.style.fontSize=localStorage.FS;
 	HTML.style.fontFamily=localStorage.FF;
 	HTML.style.color=localStorage.FC;
 	BODY.removeAttribute("class");
 	BODY.classList.add(localStorage.BGIC);
-	if(lightDarkInput){
-		BODY.classList.add(localStorage.LDST);
-	} else {
-		BODY.classList.add(localStorage.LDST);
-	}
+	BODY.classList.add(localStorage.LDST);
 });

@@ -2,6 +2,7 @@ screen.orientation.lock('portrait');
 
 
 
+
 /* 
 document.querySelector("html").style.fontSize = "10px"
 document.documentElement.style.setProperty('--alapBetuMeret', '10px');
@@ -17,3 +18,5 @@ font-family: 'Red Hat Mono', monospace;
 font-family: 'Roboto', sans-serif;
 font-family: 'Varela Round', sans-serif;
 */
+
+
