@@ -6,12 +6,12 @@ let menuOn = false;
 
 menuBtn.addEventListener('click', ()=>{
 	if (menuOn){
-		menuContainer.style.height = "90%";
-		nav.classList.remove("op1");
+		menuContainer.style.height = "100%";
+		nav.style.bottom = "-50%";
 		menuOn = false;
 	} else {
-		menuContainer.style.height = "40%";
-		nav.classList.add("op1");
+		menuContainer.style.height = "45%";
+		nav.style.bottom = "0";
 		menuOn = true;
 	}
 })
