@@ -1,3 +1,5 @@
+let flagCircle = document.querySelectorAll("header img");
+
 let menuBtn = document.querySelector("#menuBtn");
 let menuContainer = document.querySelector("#menuContainer");
 let menuContainer2 = document.querySelector("#menuContainer2");
@@ -31,3 +33,34 @@ menuBtn.addEventListener('click', ()=>{
 		}
 	}
 })
+
+let rotateDeg = 0;
+
+document.querySelector(".clickHalf.cHLeft").addEventListener("click", rotateCardLeft);
+document.querySelector(".clickHalf.cHRight").addEventListener("click", rotateCardRight);
+
+function rotateCardLeft() {
+	if (rotateDeg%360===0) {
+		flagCircle[0].style.display="none";
+		flagCircle[1].style.display="block";
+	} else {
+		flagCircle[0].style.display="block";
+		flagCircle[1].style.display="none";
+	}
+	rotateDeg-=180;
+	document.querySelector(".rotate").style.transform=`rotateY(${ rotateDeg}deg)`;
+}
+function rotateCardRight() {
+	if (rotateDeg%360===0) {
+		flagCircle[0].style.display="none";
+		flagCircle[1].style.display="block";
+	} else {
+		flagCircle[0].style.display="block";
+		flagCircle[1].style.display="none";
+	}
+	rotateDeg+=180;
+	document.querySelector(".rotate").style.transform=`rotateY(${ rotateDeg}deg)`;
+}
+
+
+// window.location.href.split("#")[1]

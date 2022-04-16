@@ -1,11 +1,11 @@
 header {
 	width: 100%;
 	height: 10%;
+	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
+	box-shadow: 0 2px 2px rgba(0,0,0,.3);
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
-	box-shadow: 0 2px 2px rgba(0,0,0,.3);
 }
 .dark header {
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.4));
@@ -14,6 +14,11 @@ header {
 header img {
 	height: 4rem;
 	margin: 1rem;
+	opacity: .7;
+}
+
+header img:last-child {
+	display: none;
 }
 
 main {
@@ -108,9 +113,6 @@ main > div {
 	transform: rotateY(0deg);
 	transition: all 1s ease-in-out;
 }
-.change.rotate {
-	transform: rotateY(180deg);
-}
 
 #dim3 {
 	position: relative;
@@ -130,6 +132,22 @@ main > div {
 	transform: rotateY(180deg) translateZ(1px);
 }
 
+#dim3 .clickHalf {
+	transform: translateZ(2px);
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 45%;
+	z-index: 10;
+}
+
+#dim3 .cHLeft {
+	left: 5%;
+}
+
+#dim3 .cHRight {
+	right: 5%;
+}
 
 footer {
 	display: flex;
