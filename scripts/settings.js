@@ -64,6 +64,11 @@ const CARDDIM = [
 	"dim3d"
 ];
 
+const CARDWORD = [
+	"once",
+	"more"
+];
+
 let fontSizeInputs = document.querySelectorAll('input[name="fontSize"]');
 let fontSizeInputCheckedValue = localStorage.FS || "10px";
 let fontSizeInputCheckedId = localStorage.FSID || "#fS2";
@@ -87,6 +92,9 @@ let lightDarkInputValue = localStorage.LDST || "light";
 let dim2d3dInput = document.querySelector("#d2-d3 input");
 let dim2d3dInputValue = localStorage.DIMST || "dim2d";
 
+let oneOrMoreInput = document.querySelector("#one-more input");
+let oneOrMoreInputValue = localStorage.OOM || "once";
+
 SIMPLEBOX.style.fontSize=parseInt(fontSizeInputCheckedValue)*3+"px";
 SIMPLEBOX.style.fontFamily=fontFamInputCheckedValue;
 SIMPLEBOX.style.color=fontCoInputCheckedValue;
@@ -102,6 +110,8 @@ if(lightDarkInputValue==="dark"){
 if(dim2d3dInputValue==="dim3d"){
 	dim2d3dInput.checked = true;
 	SIMPLEBOX.classList.add("dim3d")};
+if(oneOrMoreInputValue==="more"){
+	oneOrMoreInput.checked = true};
 
 fontSizeInputs.forEach((inp)=> {
 	inp.addEventListener('change', ()=>{
@@ -156,6 +166,14 @@ dim2d3dInput.addEventListener('change', ()=>{
 	}
 })
 
+oneOrMoreInput.addEventListener('change', ()=>{
+	if(oneOrMoreInput.checked){
+		oneOrMoreInputValue = CARDWORD[1];
+	} else {
+		oneOrMoreInputValue = CARDWORD[0];
+	}
+})
+
 function saveSettingsToLocalStorage() {
 	localStorage.setItem("FS",fontSizeInputCheckedValue);
 	localStorage.setItem("FSID",fontSizeInputCheckedId);
@@ -168,6 +186,7 @@ function saveSettingsToLocalStorage() {
 	localStorage.setItem("BGIPID",bgImgInputCheckedIdP);
 	localStorage.setItem("LDST",lightDarkInputValue);
 	localStorage.setItem("DIMST",dim2d3dInputValue);
+	localStorage.setItem("OOM",oneOrMoreInputValue);
 }
 
 document.querySelector('#saveBtn').addEventListener('click', (e)=>{

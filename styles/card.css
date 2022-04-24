@@ -49,6 +49,7 @@ main > div {
 	background-size: cover;
 	position: relative;
 	width: 85%;
+	word-spacing: .5rem;
 }
 
 #dim3 #menuContainer {
@@ -59,11 +60,13 @@ main > div {
 .light #menuContainer2 {
 	background-image: url(../images/cards/white.jpg);
 	border: 3px solid goldenrod;
+	color: #000;
 }
 .dark #menuContainer,
 .dark #menuContainer2 {
 	background-image: url(../images/cards/black.jpg);
 	border: 3px solid darkgoldenrod;
+	color: #fff;
 }
 
 #menuContainer img,

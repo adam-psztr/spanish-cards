@@ -88,7 +88,8 @@ form .fontSizeForm,
 form .fontFamForm,
 form .fontCoForm,
 form .bgImgForm,
-form .toggle-buttons {
+form .toggle-buttons,
+form .toggle-buttons2 {
 	height: 70px;
 	margin: 10px 0;
 	width: 100%;
@@ -291,6 +292,12 @@ form .fontCoForm label:nth-child(8) {
 	font-weight: bold;
 }
 
+#one-more .knobs:after {
+	content: '1<';
+	right: 3px;
+	font-weight: bold;
+}
+
 .knobs span {
 	display: inline-block;
 	left: 5px;
@@ -305,18 +312,24 @@ form .fontCoForm label:nth-child(8) {
 	left: 10px;
 }
 
+#one-more .knobs span {
+	left: 8px;
+}
+
 .checkbox:checked + .knobs:before {
 	left: 62px;
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
 }
-#d2-d3 .checkbox:checked + .knobs:before {
+#d2-d3 .checkbox:checked + .knobs:before,
+#one-more .checkbox:checked + .knobs:before {
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.8));
 }
 
 .checkbox:checked ~ .layer {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
 }
-#d2-d3 .checkbox:checked ~ .layer {
+#d2-d3 .checkbox:checked ~ .layer,
+#one-more .checkbox:checked ~ .layer {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
 }
 
