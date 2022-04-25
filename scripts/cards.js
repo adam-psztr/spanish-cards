@@ -51,7 +51,7 @@ let flagCircle = document.querySelectorAll("header img");
 
 let menuBtn = document.querySelector("#menuBtn");
 let menuContainer = document.querySelector("#menuContainer");
-let menuContainer2 = document.querySelector("#menuContainer2");
+let menuContainer2 = document.querySelector("#menuContainer2") || "";
 let nav = document.querySelector("nav");
 
 let dim3 = localStorage.DIMST=="dim3d"?true:false;
@@ -123,14 +123,73 @@ document.querySelector('main nav a[href="#"]').addEventListener('click', (e)=>{
 	history.back();
 });
 
-
-
-
-
 let url = window.location.href.split("#")[1];
 
 let text = document.querySelector("#menuContainer #text");
-let text2 = document.querySelector("#menuContainer2 #text2");
+let text2 = document.querySelector("#menuContainer2 #text2") || "";
 
-text.innerHTML = catwords[url][0].magyar;
-text2.innerHTML = catwords[url][0].spanyol;
+let onceOrMore = localStorage.OOM=="once"?true:false;
+
+function randWord(max, min=0, start=0) {
+	return Math.floor(Math.random() * (max - min) + start) + min;
+};
+
+function newarray() {
+	let arr = [];
+	let i = catwords[url].length;
+	while (i>0){
+		arr.push(catwords[url].splice(Math.floor(Math.random()*catwords[url].length),1)[0]);
+		i--;
+	};
+	return arr;
+};
+
+function change3d(url) {
+	if (onceOrMore){
+		if(newarr.length>0){
+			let x = newarr.pop(newarr.length-1);
+			text.innerHTML = x.magyar;
+			text2.innerHTML = x.spanyol;
+		} else {
+			text.innerHTML = "&Oslash;";
+			text2.innerHTML = "&Oslash;";
+		}
+	} else {
+		let x = randWord(catwords[url].length);
+		text.innerHTML = catwords[url][x].magyar;
+		text2.innerHTML = catwords[url][x].spanyol;
+	}
+}
+
+function btnNext3d() {
+	if (rotateDeg%360===180) {
+		rotateCardLeft();
+		text.innerHTML = "";
+		text2.innerHTML = "";
+		setTimeout(change3d,1000,url);
+	} else {
+		change3d(url);
+	}
+}
+
+document.querySelector('footer a:last-child').addEventListener('click', (e)=>{
+	e.preventDefault();
+	if (dim3) {
+		btnNext3d();
+	} else {
+		
+	}
+});
+
+let newarr;
+
+if (dim3) {
+	if (onceOrMore){
+		newarr = newarray();
+		change3d(url);
+	} else {
+		change3d(url);
+	}
+} else {
+
+};
