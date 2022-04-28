@@ -12,8 +12,8 @@ if(BODY.className.indexOf('dim2d')!==-1) {
 		</div>
 	</div>
 	<nav>
-	<a href="./practice.html">GYAKORLÁS</a>
 	<a href="./settings.html">BEÁLLÍTÁSOK</a>
+	<a href="../index.html">FŐOLDAL</a>
 	<a href="#">VISSZA</a>
 	</nav>
 	`
@@ -40,14 +40,16 @@ if(BODY.className.indexOf('dim2d')!==-1) {
 		<div class="clickHalf cHRight"></div>
 	</div>
 	<nav>
-		<a href="./practice.html">GYAKORLÁS</a>
-		<a href="./settings.html">BEÁLLÍTÁSOK</a>
+	<a href="./settings.html">BEÁLLÍTÁSOK</a>
+		<a href="../index.html">FŐOLDAL</a>
 		<a href="#">VISSZA</a>
 	</nav>
 	`
 };
 
 let flagCircle = document.querySelectorAll("header img");
+
+let flagSquare = document.querySelectorAll("#menuContainer img");
 
 let menuBtn = document.querySelector("#menuBtn");
 let menuContainer = document.querySelector("#menuContainer");
@@ -127,7 +129,9 @@ document.querySelector('main nav a[href="#"]').addEventListener('click', (e)=>{
 	history.back();
 });
 
-let url = window.location.href.split("#")[1];
+let urlArr = window.location.href.split("#")[1].split("&");
+let url = urlArr[0];
+let url2 = urlArr[1]==="les"? leswords : catwords ;
 
 let text = document.querySelector("#menuContainer #text");
 let text2 = document.querySelector("#menuContainer2 #text2") || "";
@@ -138,11 +142,11 @@ function randWord(max, min=0, start=0) {
 	return Math.floor(Math.random() * (max - min) + start) + min;
 };
 
-function newarray() {
+function newarray(w) {
 	let arr = [];
-	let i = catwords[url].length;
+	let i = w[url].length;
 	while (i>0){
-		arr.push(catwords[url].splice(Math.floor(Math.random()*catwords[url].length),1)[0]);
+		arr.push(w[url].splice(Math.floor(Math.random()*w[url].length),1)[0]);
 		i--;
 	};
 	return arr;
@@ -159,9 +163,47 @@ function change3d(url) {
 			text2.innerHTML = "&Oslash;";
 		}
 	} else {
-		let x = randWord(catwords[url].length);
-		text.innerHTML = catwords[url][x].magyar;
-		text2.innerHTML = catwords[url][x].spanyol;
+		let x = randWord(url2[url].length);
+		text.innerHTML = url2[url][x].magyar;
+		text2.innerHTML = url2[url][x].spanyol;
+	}
+}
+
+let magyar2d;
+let spanyol2d;
+let hun2d = true;
+
+function translate2d() {
+	if (hun2d) {
+		text.innerHTML = spanyol2d;
+		hun2d = false;
+		flagCircle[0].style.display="none";
+		flagCircle[1].style.display="block";
+		flagSquare.forEach(e=>e.src="../images/flags/spain-flag-s.png");
+	} else {
+		text.innerHTML = magyar2d;
+		hun2d = true;
+		flagCircle[0].style.display="block";
+		flagCircle[1].style.display="none";
+		flagSquare.forEach(e=>e.src="../images/flags/hun-flag-s.png");
+	}
+}
+
+function change2d(url) {
+	if (onceOrMore){
+		if(newarr.length>0){
+			let x = newarr.pop(newarr.length-1);
+			magyar2d = x.magyar;
+			spanyol2d = x.spanyol;
+			text.innerHTML = magyar2d;
+		} else {
+			text.innerHTML = "&Oslash;";
+		}
+	} else {
+		let x = randWord(url2[url].length);
+		magyar2d = url2[url][x].magyar;
+		spanyol2d = url2[url][x].spanyol;
+		text.innerHTML = url2[url][x].magyar;
 	}
 }
 
@@ -180,12 +222,21 @@ function btnNext3d() {
 	}
 }
 
+function btnNext2d() {
+	text.innerHTML = "";
+	change2d(url);
+	hun2d = true;
+	flagCircle[0].style.display="block";
+	flagCircle[1].style.display="none";
+	flagSquare.forEach(e=>e.src="../images/flags/hun-flag-s.png");
+}
+
 document.querySelector('footer a:last-child').addEventListener('click', (e)=>{
 	e.preventDefault();
 	if (dim3) {
 		btnNext3d();
 	} else {
-		
+		btnNext2d();
 	}
 });
 
@@ -193,11 +244,17 @@ let newarr;
 
 if (dim3) {
 	if (onceOrMore){
-		newarr = newarray();
+		newarr = newarray(url2);
 		change3d(url);
 	} else {
 		change3d(url);
 	}
 } else {
-
+	if (onceOrMore){
+		newarr = newarray(url2);
+		change2d(url);
+	} else {
+		change2d(url);
+	};
+	menuContainer.addEventListener("click", translate2d);
 };
