@@ -85,6 +85,8 @@ menuBtn.addEventListener('click', ()=>{
 
 let rotateDeg = 0;
 
+let rotateSide = "right";
+
 if(BODY.className.indexOf('dim3d')!==-1) {
 
 	document.querySelector(".clickHalf.cHLeft").addEventListener("click", rotateCardLeft);
@@ -100,6 +102,7 @@ if(BODY.className.indexOf('dim3d')!==-1) {
 		}
 		rotateDeg-=180;
 		document.querySelector(".rotate").style.transform=`rotateY(${ rotateDeg}deg)`;
+		rotateSide="left";
 	}
 	function rotateCardRight() {
 		if (rotateDeg%360===0) {
@@ -111,6 +114,7 @@ if(BODY.className.indexOf('dim3d')!==-1) {
 		}
 		rotateDeg+=180;
 		document.querySelector(".rotate").style.transform=`rotateY(${ rotateDeg}deg)`;
+		rotateSide="right";
 	}
 }
 
@@ -162,8 +166,12 @@ function change3d(url) {
 }
 
 function btnNext3d() {
-	if (rotateDeg%360===180) {
-		rotateCardLeft();
+	if (rotateDeg%360!==0) {
+		if (rotateSide=="left"){
+			rotateCardRight();
+		}else {
+			rotateCardLeft();
+		}
 		text.innerHTML = "";
 		text2.innerHTML = "";
 		setTimeout(change3d,1000,url);
