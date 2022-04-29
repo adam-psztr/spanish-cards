@@ -113,6 +113,13 @@ main > div {
 	position: absolute;
 	transform-style: preserve-3d;
 	transform: rotateY(0deg);
+}
+
+.halfS .rotate {
+	transition: all .5s ease-in-out;
+}
+
+.oneS .rotate {
 	transition: all 1s ease-in-out;
 }
 

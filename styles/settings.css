@@ -298,6 +298,12 @@ form .fontCoForm label:nth-child(8) {
 	font-weight: bold;
 }
 
+#half-one .knobs:after {
+	content: '1';
+	right: 3px;
+	font-weight: bold;
+}
+
 .knobs span {
 	display: inline-block;
 	left: 5px;
@@ -316,12 +322,17 @@ form .fontCoForm label:nth-child(8) {
 	left: 8px;
 }
 
+#half-one .knobs span {
+	left: 10px;
+}
+
 .checkbox:checked + .knobs:before {
 	left: 62px;
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.6));
 }
 #d2-d3 .checkbox:checked + .knobs:before,
-#one-more .checkbox:checked + .knobs:before {
+#one-more .checkbox:checked + .knobs:before,
+#half-one .checkbox:checked + .knobs:before {
 	background-image: linear-gradient(175deg, rgba(198, 3, 31, 0.01), rgba(198, 3, 31, 0.8));
 }
 
@@ -329,7 +340,8 @@ form .fontCoForm label:nth-child(8) {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.4));
 }
 #d2-d3 .checkbox:checked ~ .layer,
-#one-more .checkbox:checked ~ .layer {
+#one-more .checkbox:checked ~ .layer,
+#half-one .checkbox:checked ~ .layer {
 	background-image: linear-gradient(175deg, rgba(255, 193, 45, 0.01), rgba(255, 193, 45, 0.6));
 }
 

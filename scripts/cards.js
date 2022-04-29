@@ -238,6 +238,8 @@ function change2d(url) {
 	}
 }
 
+let bodyHalfS = BODY.className.includes("halfS");
+
 function btnNext3d() {
 	if (rotateDeg%360!==0) {
 		if (rotateSide=="left"){
@@ -249,7 +251,11 @@ function btnNext3d() {
 		text2.innerHTML = "";
 		text.style.removeProperty("font-size");
 		text2.style.removeProperty("font-size");
-		setTimeout(change3d,1000,url);
+		if(bodyHalfS){
+			setTimeout(change3d,500,url);
+		}else {
+			setTimeout(change3d,1000,url);
+		}
 	} else {
 		text.style.removeProperty("font-size");
 		text2.style.removeProperty("font-size");

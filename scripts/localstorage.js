@@ -8,3 +8,4 @@ BODY.classList.add(localStorage.BGIC || "bgI4");
 BODY.classList.add(localStorage.LDST || "light");
 BODY.classList.add(localStorage.DIMST || "dim2d");
 BODY.classList.add(localStorage.OOM || "once");
+BODY.classList.add(localStorage.HOO || "oneS");

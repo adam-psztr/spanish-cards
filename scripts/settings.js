@@ -69,6 +69,11 @@ const CARDWORD = [
 	"more"
 ];
 
+const CARDROSP = [
+	"halfS",
+	"oneS"
+];
+
 let fontSizeInputs = document.querySelectorAll('input[name="fontSize"]');
 let fontSizeInputCheckedValue = localStorage.FS || "10px";
 let fontSizeInputCheckedId = localStorage.FSID || "#fS2";
@@ -95,6 +100,9 @@ let dim2d3dInputValue = localStorage.DIMST || "dim2d";
 let oneOrMoreInput = document.querySelector("#one-more input");
 let oneOrMoreInputValue = localStorage.OOM || "once";
 
+let halfOrOneInput = document.querySelector("#half-one input");
+let halfOrOneInputValue = localStorage.HOO || "oneS";
+
 SIMPLEBOX.style.fontSize=parseInt(fontSizeInputCheckedValue)*3+"px";
 SIMPLEBOX.style.fontFamily=fontFamInputCheckedValue;
 SIMPLEBOX.style.color=fontCoInputCheckedValue;
@@ -112,6 +120,8 @@ if(dim2d3dInputValue==="dim3d"){
 	SIMPLEBOX.classList.add("dim3d")};
 if(oneOrMoreInputValue==="more"){
 	oneOrMoreInput.checked = true};
+if(halfOrOneInputValue==="oneS"){
+	halfOrOneInput.checked = true};
 
 fontSizeInputs.forEach((inp)=> {
 	inp.addEventListener('change', ()=>{
@@ -174,6 +184,14 @@ oneOrMoreInput.addEventListener('change', ()=>{
 	}
 })
 
+halfOrOneInput.addEventListener('change', ()=>{
+	if(halfOrOneInput.checked){
+		halfOrOneInputValue = CARDROSP[1];
+	} else {
+		halfOrOneInputValue = CARDROSP[0];
+	}
+})
+
 function saveSettingsToLocalStorage() {
 	localStorage.setItem("FS",fontSizeInputCheckedValue);
 	localStorage.setItem("FSID",fontSizeInputCheckedId);
@@ -187,6 +205,7 @@ function saveSettingsToLocalStorage() {
 	localStorage.setItem("LDST",lightDarkInputValue);
 	localStorage.setItem("DIMST",dim2d3dInputValue);
 	localStorage.setItem("OOM",oneOrMoreInputValue);
+	localStorage.setItem("HOO",halfOrOneInputValue);
 }
 
 document.querySelector('#saveBtn').addEventListener('click', (e)=>{
