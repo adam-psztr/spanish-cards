@@ -133,6 +133,29 @@ let urlArr = window.location.href.split("#")[1].split("&");
 let url = urlArr[0];
 let url2 = urlArr[1]==="les"? leswords : catwords ;
 
+if(!url2[url]){
+	switch(url) {
+		case "w150":
+			leswords.w150 = leswords.osszes.slice(-150);
+			break;
+		case "w100":
+			leswords.w100 = leswords.osszes.slice(-100);
+			break;
+		case "w75":
+			leswords.w75 = leswords.osszes.slice(-75);
+			break;
+		case "w50":
+			leswords.w50 = leswords.osszes.slice(-50);
+			break;
+		case "w25":
+			leswords.w25 = leswords.osszes.slice(-25);
+			break;
+		case "osszes_kategoria":
+			catwords.osszes_kategoria = catwords.szinek.concat(catwords.csalad, catwords.szamok, catwords.honapok, catwords.allatok, catwords.tulajdonsagok, catwords.ruhazat, catwords.sport, catwords.elelmiszerek, catwords.szakmak, catwords.zoldseg, catwords.otthon, catwords.testreszek, catwords.varos, catwords.uzlet, catwords.politika, catwords.idojaras);
+			break;
+	}
+};
+
 let text = document.querySelector("#menuContainer #text");
 let text2 = document.querySelector("#menuContainer2 #text2") || "";
 
@@ -158,6 +181,7 @@ function change3d(url) {
 			let x = newarr.pop(newarr.length-1);
 			text.innerHTML = x.magyar;
 			text2.innerHTML = x.spanyol;
+			resizeFontSize();
 		} else {
 			text.innerHTML = "&Oslash;";
 			text2.innerHTML = "&Oslash;";
@@ -166,6 +190,7 @@ function change3d(url) {
 		let x = randWord(url2[url].length);
 		text.innerHTML = url2[url][x].magyar;
 		text2.innerHTML = url2[url][x].spanyol;
+		resizeFontSize();
 	}
 }
 
@@ -176,12 +201,14 @@ let hun2d = true;
 function translate2d() {
 	if (hun2d) {
 		text.innerHTML = spanyol2d;
+		resizeFontSize();
 		hun2d = false;
 		flagCircle[0].style.display="none";
 		flagCircle[1].style.display="block";
 		flagSquare.forEach(e=>e.src="../images/flags/spain-flag-s.png");
 	} else {
 		text.innerHTML = magyar2d;
+		resizeFontSize();
 		hun2d = true;
 		flagCircle[0].style.display="block";
 		flagCircle[1].style.display="none";
@@ -196,7 +223,10 @@ function change2d(url) {
 			magyar2d = x.magyar;
 			spanyol2d = x.spanyol;
 			text.innerHTML = magyar2d;
+			resizeFontSize();
 		} else {
+			magyar2d = "&Oslash;";
+			spanyol2d = "&Oslash;";
 			text.innerHTML = "&Oslash;";
 		}
 	} else {
@@ -204,6 +234,7 @@ function change2d(url) {
 		magyar2d = url2[url][x].magyar;
 		spanyol2d = url2[url][x].spanyol;
 		text.innerHTML = url2[url][x].magyar;
+		resizeFontSize()
 	}
 }
 
@@ -216,14 +247,19 @@ function btnNext3d() {
 		}
 		text.innerHTML = "";
 		text2.innerHTML = "";
+		text.style.removeProperty("font-size");
+		text2.style.removeProperty("font-size");
 		setTimeout(change3d,1000,url);
 	} else {
+		text.style.removeProperty("font-size");
+		text2.style.removeProperty("font-size");
 		change3d(url);
 	}
 }
 
 function btnNext2d() {
 	text.innerHTML = "";
+	text.style.removeProperty("font-size");
 	change2d(url);
 	hun2d = true;
 	flagCircle[0].style.display="block";
@@ -258,3 +294,21 @@ if (dim3) {
 	};
 	menuContainer.addEventListener("click", translate2d);
 };
+
+function resizeFontSize() {
+	if (dim3) {
+		while(text.getBoundingClientRect().width>menuContainer.getBoundingClientRect().width){
+			actualSize = parseInt(window.getComputedStyle(text).getPropertyValue('font-size'));
+			newSize=actualSize-2 +"px";
+			text.style.fontSize=newSize};
+		while(text2.getBoundingClientRect().width>menuContainer2.getBoundingClientRect().width){
+			actualSize = parseInt(window.getComputedStyle(text2).getPropertyValue('font-size'));
+			newSize=actualSize-2 +"px";
+			text2.style.fontSize=newSize};
+			} else {
+		while(text.getBoundingClientRect().width>menuContainer.getBoundingClientRect().width){
+			actualSize = parseInt(window.getComputedStyle(text).getPropertyValue('font-size'));
+			newSize=actualSize-2 +"px";
+			text.style.fontSize=newSize};
+	}
+}
