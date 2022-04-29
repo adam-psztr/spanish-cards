@@ -163,3 +163,11 @@ nav a:hover {
   }
 }
 
+#menuContainer .stepRight {
+	margin-right: -.4rem;
+}
+
+#menuContainer .stepRight,
+#menuContainer .stepRight + i {
+	font-size: 3.5rem;
+}

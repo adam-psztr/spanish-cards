@@ -1,5 +1,17 @@
 let main = document.querySelector("main");
 
+let urlArr = window.location.href.split("#")[1].split("&");
+let url = urlArr[0];
+let url2 = urlArr[1]==="les"? leswords : catwords ;
+
+let dim3 = (localStorage.DIMST=="dim3d"&&url!="igek")?true:false;
+let menuOn = false;
+
+if(url==="igek"){
+	BODY.classList.remove("dim3d");
+	BODY.classList.add("dim2d");
+}
+
 if(BODY.className.indexOf('dim2d')!==-1) {
 	main.innerHTML = `
 	<div id="dim2">
@@ -56,8 +68,6 @@ let menuContainer = document.querySelector("#menuContainer");
 let menuContainer2 = document.querySelector("#menuContainer2") || "";
 let nav = document.querySelector("nav");
 
-let dim3 = localStorage.DIMST=="dim3d"?true:false;
-let menuOn = false;
 
 menuBtn.addEventListener('click', ()=>{
 	if (dim3) {
@@ -129,12 +139,15 @@ document.querySelector('main nav a[href="#"]').addEventListener('click', (e)=>{
 	history.back();
 });
 
-let urlArr = window.location.href.split("#")[1].split("&");
-let url = urlArr[0];
-let url2 = urlArr[1]==="les"? leswords : catwords ;
 
 if(!url2[url]){
 	switch(url) {
+		case "w500":
+			leswords.w500 = leswords.osszes.slice(-500);
+			break;
+		case "w250":
+			leswords.w250 = leswords.osszes.slice(-250);
+			break;
 		case "w150":
 			leswords.w150 = leswords.osszes.slice(-150);
 			break;
@@ -200,6 +213,7 @@ let hun2d = true;
 
 function translate2d() {
 	if (hun2d) {
+		text.style.removeProperty("font-size");
 		text.innerHTML = spanyol2d;
 		resizeFontSize();
 		hun2d = false;
@@ -207,6 +221,7 @@ function translate2d() {
 		flagCircle[1].style.display="block";
 		flagSquare.forEach(e=>e.src="../images/flags/spain-flag-s.png");
 	} else {
+		text.style.removeProperty("font-size");
 		text.innerHTML = magyar2d;
 		resizeFontSize();
 		hun2d = true;
@@ -233,7 +248,69 @@ function change2d(url) {
 		let x = randWord(url2[url].length);
 		magyar2d = url2[url][x].magyar;
 		spanyol2d = url2[url][x].spanyol;
-		text.innerHTML = url2[url][x].magyar;
+		text.innerHTML = magyar2d;
+		resizeFontSize()
+	}
+}
+
+let spanyol2d2;
+let verbStatus = "verbHU";
+
+function translate2dVerb() {
+	switch(verbStatus) {
+		case "verbHU":
+			text.style.removeProperty("font-size");
+			text.innerHTML = spanyol2d;
+			resizeFontSize();
+			verbStatus = "verbES";
+			flagCircle[0].style.display="none";
+			flagCircle[1].style.display="block";
+			flagSquare.forEach(e=>e.src="../images/flags/spain-flag-s.png");
+			break;
+		case "verbES":
+			text.style.removeProperty("font-size");
+			if(newarr.length>0){
+				text.innerHTML = `${spanyol2d2[0]}<br>${spanyol2d2[1]}<br>${spanyol2d2[2]}<br>${spanyol2d2[3]}<br>${spanyol2d2[4]}<br>${spanyol2d2[5]}`;
+			}
+			resizeFontSize();
+			verbStatus = "verbES2";
+			break;
+		case "verbES2":
+			text.style.removeProperty("font-size");
+			text.innerHTML = magyar2d;
+			resizeFontSize();
+			verbStatus = "verbHU";
+			flagCircle[0].style.display="block";
+			flagCircle[1].style.display="none";
+			flagSquare.forEach(e=>e.src="../images/flags/hun-flag-s.png");
+			break;
+	}
+}
+
+function change2dVerb(url) {
+	if (onceOrMore){
+		if(newarr.length>0){
+			let x = newarr.pop(newarr.length-1);
+			magyar2d = x.magyar;
+			spanyol2d = x.spanyol;
+			spanyol2d2 = x.spanyol2;
+			text.innerHTML = magyar2d;
+			verbStatus = "verbHU";
+			resizeFontSize();
+		} else {
+			magyar2d = "&Oslash;";
+			spanyol2d = "&Oslash;";
+			spanyol2d2 = "&Oslash;";
+			text.innerHTML = "&Oslash;";
+			verbStatus = "verbHU";
+		}
+	} else {
+		let x = randWord(url2[url].length);
+		magyar2d = url2[url][x].magyar;
+		spanyol2d = url2[url][x].spanyol;
+		spanyol2d2 = url2[url][x].spanyol2;
+		text.innerHTML = magyar2d;
+		verbStatus = "verbHU";
 		resizeFontSize()
 	}
 }
@@ -266,7 +343,11 @@ function btnNext3d() {
 function btnNext2d() {
 	text.innerHTML = "";
 	text.style.removeProperty("font-size");
-	change2d(url);
+	if(url!=="igek"){
+		change2d(url);
+	}else{
+		change2dVerb(url);
+	}
 	hun2d = true;
 	flagCircle[0].style.display="block";
 	flagCircle[1].style.display="none";
@@ -294,11 +375,23 @@ if (dim3) {
 } else {
 	if (onceOrMore){
 		newarr = newarray(url2);
-		change2d(url);
+		if(url!=="igek"){
+			change2d(url);
+		}else{
+			change2dVerb(url);
+		}
 	} else {
-		change2d(url);
+		if(url!=="igek"){
+			change2d(url);
+		}else{
+			change2dVerb(url);
+		}
 	};
-	menuContainer.addEventListener("click", translate2d);
+	if(url!=="igek"){
+		menuContainer.addEventListener("click", translate2d);
+	}else{
+		menuContainer.addEventListener("click", translate2dVerb);
+	}
 };
 
 function resizeFontSize() {
